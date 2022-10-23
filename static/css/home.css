@@ -1,0 +1,66 @@
+body {
+    background-color: aqua;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: aliceblue;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav .identity {
+    width: 20%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .identity img {
+    width: 40%;
+}
+
+nav .directions {
+    width: 30%;
+    border: 1px solid green;
+}
+
+nav .directions span {
+    padding: 2%;
+    background-color: black;
+    color: white;
+}
+
+nav .auth {
+    width: 20%;
+    border: 1px solid black;
+}
+
+nav .search {
+    width: 30%;
+    border: 1px solid blue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .search #query {
+    display: block;
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+}
+
+nav .search button {
+    width: 10%;
+    background-color: white;
+    border: 0;
+}
+
+nav .search button img {
+    width: 100%;
+}

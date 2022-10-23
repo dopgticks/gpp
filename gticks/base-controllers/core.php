@@ -55,6 +55,33 @@
     }
 
 
+    class Response{
+        function __construct($data)
+        {
+            echo $data;
+        }
+    }
+    class JsonResponse{
+        function __construct($Object)
+        {
+            $jsonData = json_encode($Object);
+            echo $jsonData;
+        }
+    }
+
+    function render($request, $template, $dataset){
+        /**
+         *  putting data to template is not production ready
+         */
+        $path = "templates/".$template;
+        if(file_exists($path)){
+            require_once $path;
+        }
+        else{
+            echo "template not found";
+        }
+    }
+
 
 
 

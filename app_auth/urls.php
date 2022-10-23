@@ -4,6 +4,8 @@
 
      $urlpatterns = [
          "/^login\/$/" => $login,
-         "/^signup\/$/" => $signUp
+         "/^signup\/$/" => $signUp,
+         "/^signup\/verify\/([a-z]+)\/$/" => $sVerifyer
+         
      ];
 ?>

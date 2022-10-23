@@ -34,6 +34,31 @@
             parent::__construct();
         }
         
+        // to save new object of this class to database...
+        public function save(){
+            if($this->connected){
+               if(!($this->isSaved)){
+                    try {
+                        //code...
+                        $userInsertStatement = ($this->connector)->prepare("
+                            INSERT INTO acct (username, pswd_hash, email) 
+                            VALUES(:usn, :ph, :eml) 
+                        ");
+                        $userInsertStatement->bindValue(":usn", $this->username);
+                        $userInsertStatement->bindValue(":ph", $this->pswd_hash);
+                        $userInsertStatement->bindValue(":eml", $this->email);
+                        $userInsertStatement->execute();
+                        $this->isSaved = true;
+                        return 1;
+                    } catch (\Throwable $th) {
+                        //throw $th;
+                        $this->isSaved = false;
+                        return -1;
+                    }
+               }
+            }
+        }
+
         public static function get($col, $value, $scope = "*"){
             $db = new GticksDb();
             if($db->connected){
@@ -53,7 +78,7 @@
         }
 
         public static function find($data, $col="username", $start="0", $amt="3"){
-            $db = new KislandDb;
+            $db = new GticksDb();
             if($db->connected){
                 try {
                     //code...
@@ -75,7 +100,7 @@
           
         }
         public static function upauthor($col, $old_value, $new_value){
-            $db = new KislandDb;
+            $db = new GticksDb();
             if($db->connected){
                 try {
                     //code...
@@ -92,7 +117,7 @@
         }
 
         public static function delete($col, $value){
-            $db = new KislandDb;
+            $db = new GticksDb();
             if($db->connected){
                 try {
                     //code...
@@ -108,28 +133,7 @@
             }
         }
         // helper functions...end
-        // to save new object of this class to database...
-        public function save(){
-            if($this->connected){
-               if(!($this->isSaved)){
-                    try {
-                        //code...
-                        $userInsertStatement = ($this->connector)->prepare("
-                            INSERT INTO user (username, pswd_hash, email) 
-                            VALUES(:usn, :ph, :eml) 
-                        ");
-                        $userInsertStatement->bindValue(":usn", $this->username);
-                        $userInsertStatement->bindValue(":ph", $this->pswd_hash);
-                        $userInsertStatement->bindValue(":eml", $this->email);
-                        $userInsertStatement->execute();
-                        $this->isSaved = true;
-                    } catch (\Throwable $th) {
-                        //throw $th;
-                        $this->isSaved = false;
-                    }
-               }
-            }
-        }
+        
     }
 
 ?>

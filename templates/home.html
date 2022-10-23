@@ -1,3 +1,6 @@
+<!--
+    This is just a template file that you should modify, together.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,19 +8,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        div {
-            height: 100px;
-            width: 100px;
-            border-bottom: 10px solid rebeccapurple;
-            border-radius: 100% 200% 120% 200%;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/css/home.css">
+    <script defer src="/static/js/home.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div>ggg</div>
+    <nav>
+        <div class="identity">
+            <img src="/static/images/book.png" alt="" width="100px">
+            <h1>
+                <span class="g">Geneticks</span>
+                <span class="c">Computer</span>
+                <span class="i">Institute</span>
+            </h1>
+        </div>
+        <div class="directions">
+            <span class="home">Home</span>
+            <span class="learn">Learn</span>
+            <span class="about">About</span>
+            <span class="works">Works</span>
+        </div>
+        <div class="auth">
+            <a href="/login">Sign In</a>
+            <a href="/signup">Sign Up</a>
+        </div>
+        <div class="search">
+            <input type="search" name="query" id="query">
+            <button type="submit">
+                <img src="/static/images/search.png" alt="search icon">
+            </button>
+        </div>
+        <div class="menu-icon">
+            menu
+        </div>
+
+    </nav>
 </body>
 
 </html>
